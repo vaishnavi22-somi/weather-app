@@ -20,14 +20,17 @@ app.get("/weather", async (req, res) => {
   try {
     const response = await fetch(url);
     const data = await response.json();
-    if (data.cod && data.cod === "404") return res.json({ error: "City not found" });
+    if (data.cod == "404"){
+         return res.json({ error: "City not found" });
+    }
     res.json({
       city: data.name,
       temperature: data.main.temp,
       humidity: data.main.humidity,
       condition: data.weather[0].description
     });
-  } catch (e) {
+  } catch (err) {
+    console.log("ERROR:",err);
     res.json({ error: "Weather API error" });
   }
 });
