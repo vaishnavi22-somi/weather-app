@@ -9,7 +9,7 @@ app.use(express.json());
 const PORT = process.env.PORT || 3000;
 
 // Use OpenWeather API key from env
-const OPENWEATHER_KEY = process.env.OPENWEATHER_API_KEY || "4db8340018e7ba6a543a83c399cbd240";
+const OPENWEATHER_KEY = process.env.OPENWEATHER_API_KEY;
 
 // Example /weather route using env key
 app.get("/weather", async (req, res) => {
